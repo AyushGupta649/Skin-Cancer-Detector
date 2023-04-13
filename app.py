@@ -12,7 +12,7 @@ from PIL import Image
 import plotly.express as px
 
 MODELSPATH = './models/'
-DATAPATH = './data/'
+DATAPATH = './static/'
 
 
 def render_header():
