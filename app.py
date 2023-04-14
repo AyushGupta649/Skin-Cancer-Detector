@@ -80,9 +80,9 @@ def display_prediction(Y_pred_classes):
 #def display_prediction(y_new):
     """Display image and preditions from model"""
 
-    result = pd.DataFrame({'Probability': Y_pred_classes}, index=np.arange(7))
+    result = pd.DataFrame({'Probability%': Y_pred_classes}, index=np.arange(7))
     result = result.reset_index()
-    result.columns = ['Classes', 'Probability']
+    result.columns = ['Classes', 'Probability%']
     lesion_type_dict = {2: 'Benign keratosis-like lesions', 4: 'Melanocytic nevi', 3: 'Dermatofibroma',
                         5: 'Melanoma', 6: 'Vascular lesions', 1: 'Basal cell carcinoma', 0: 'Actinic keratoses'}
     result["Classes"] = result["Classes"].map(lesion_type_dict)
@@ -127,9 +127,9 @@ def main():
                         #y_new, Y_pred_classes = predict(x_test, model)
                         result = display_prediction(Y_pred_classes)
                         st.write(result)
-                        if st.checkbox('Display Probability Graph'):
+                        if st.checkbox('Display Probability% Graph'):
                             fig = px.bar(result, x="Classes",
-                                         y="Probability", color='Classes')
+                                         y="Probability%", color='Classes')
                             st.plotly_chart(fig, use_container_width=True)
 
     if page == "Upload Your Image":
@@ -160,9 +160,9 @@ def main():
                     #y_new, Y_pred_classes = predict(x_test, model)
                     result = display_prediction(Y_pred_classes)
                     st.write(result)
-                    if st.checkbox('Display Probability Graph'):
+                    if st.checkbox('Display Probability% Graph'):
                         fig = px.bar(result, x="Classes",
-                                     y="Probability", color='Classes')
+                                     y="Probability%", color='Classes')
                         st.plotly_chart(fig, use_container_width=True)
 
 
