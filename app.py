@@ -102,17 +102,17 @@ def main():
         You need to choose Sample Data
         """)
 
-        mov_base = ['Sample Data I']
-        movies_chosen = st.multiselect('Choose Sample Data', mov_base)
+        base = ['Sample Data I']
+        sample_data = st.multiselect('Choose Sample Data', base)
 
-        if len(movies_chosen) > 1:
+        if len(sample_data) > 1:
             st.error('Please select Sample Data')
-        if len(movies_chosen) == 1:
+        if len(sample_data) == 1:
             st.success("You have selected Sample Data")
         else:
             st.info('Please select Sample Data')
 
-        if len(movies_chosen) == 1:
+        if len(sample_data) == 1:
             if st.checkbox('Show Sample Data'):
                 st.info("Showing Sample data---->>>")
                 image = load_mekd()
